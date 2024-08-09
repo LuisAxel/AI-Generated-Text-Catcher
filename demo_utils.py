@@ -24,9 +24,9 @@ class DistilBERTClass(torch.nn.Module):
         output = self.sigmoid(output)
         return output
 
-def load_model_and_tokenizer(model_file, vocab_file):
+def load_model_and_tokenizer(device, model_file, vocab_file):
     tokenizer = transformers.BertTokenizer.from_pretrained(vocab_file, truncation=True, do_lower_case=True)
-    model = torch.load(model_file)
+    model = torch.load(model_file, map_location=device)
     return model, tokenizer
 
 def segment_text(text: str, segment_length: int = 20) -> list:
