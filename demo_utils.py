@@ -61,7 +61,7 @@ def test_essay(essay, model, tokenizer, max_len, device):
             outputs = model(ids, mask, token_type_ids)
             outputs = outputs.squeeze()
 
-        predicted_prob = outputs
+        predicted_prob = outputs.round()
         all_predictions.append(predicted_prob)
 
     return all_predictions
