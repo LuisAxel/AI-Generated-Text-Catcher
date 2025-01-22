@@ -42,7 +42,7 @@ document.getElementById('predict-form').addEventListener('submit', function(even
     }
 
     // Send request to Flask API
-    fetch('/predict', requestOptions)
+    fetch('http://127.0.0.1:8000/predict', requestOptions)
     .then(response => {
         if (!response.ok) {
             // Handle errors from API
