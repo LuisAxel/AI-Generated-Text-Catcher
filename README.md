@@ -8,7 +8,9 @@ The AI-Generated-Text-Catcher web application is publicly hosted and available a
 
 **[https://54.196.179.187/](https://54.196.179.187/)**
 
-Feel free to use this web application to analyze text and identify AI-generated content quickly and efficiently.
+Please note that the public IPv4 address may change periodically. If you encounter any issues or need assistance, feel free to contact the contributors of the project.
+
+Use this web application to analyze text and identify AI-generated content quickly and efficiently.
 
 ## Project Structure
 
