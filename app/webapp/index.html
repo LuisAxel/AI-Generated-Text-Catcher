@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay Analysis</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS for styling -->
+</head>
+<body>
+    <div class="container">
+        <h1>Essay Authenticity Checker</h1>
+        <p>Upload a PDF file or enter text to check the authenticity of the essay.</p>
+
+        <!-- Form for uploading PDF or entering text for analysis -->
+        <form id="predict-form" action="/results.html" method="GET" enctype="multipart/form-data" target="_blank">
+            
+            <!-- File input for uploading a PDF -->
+            <div class="input-group">
+                <label for="pdf-file">Upload PDF:</label>
+                <input type="file" id="pdf-file" name="file" accept=".pdf" />
+            </div>
+
+            <!-- Text area for entering essay text -->
+            <div class="input-group">
+                <label for="essay-text">Or Enter Text:</label>
+                <textarea id="essay-text" name="essay" placeholder="Enter your essay text here..."></textarea>
+            </div>
+
+            <!-- Submit button to trigger the analysis -->
+            <button type="submit" id="submit-button">Analyze</button>
+        </form>
+    </div>
+
+    <!-- Link to external JavaScript file for handling form submission and communication with the backend -->
+    <script src="app.js"></script>
+</body>
+</html>

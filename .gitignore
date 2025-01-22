@@ -1,0 +1,4 @@
+app/services/env/
+app/services/__pycache__/
+model/env/
+model/__pycache__/

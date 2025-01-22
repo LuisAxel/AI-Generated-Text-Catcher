@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Essay Analysis</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS for styling -->
+</head>
+<body>
+    <div class="container">
+        <h1>Essay Authenticity Analysis</h1>
+        <div id="results">
+            <!-- Display authenticity and generated percentages -->
+            <p>Authentic Percentage: <span id="authentic-percentage"></span>%</p>
+            <p>Generated Percentage: <span id="generated-percentage"></span>%</p>
+
+            <!-- Heading for displaying prediction results -->
+            <h3>Prediction Results:</h3>
+            <!-- List of sentences with color-coded predictions -->
+            <div id="predictions-list"></div>
+
+            <!-- Return Button to go back to the home page -->
+            <button onclick="window.location.href = '/index.html';" id="return-button">Submit Another Essay</button>
+        </div>
+    </div>
+
+    <script>
+        // Get the URL parameters to retrieve the prediction data
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Extract values from the URL parameters
+        const authenticPercentage = urlParams.get('authentic_percentage');
+        const generatedPercentage = urlParams.get('generated_percentage');
+        const predictions = JSON.parse(urlParams.get('predictions'));
+        const essayText = urlParams.get('essay');
+
+        // Display the percentages in the HTML
+        document.getElementById('authentic-percentage').textContent = authenticPercentage;
+        document.getElementById('generated-percentage').textContent = generatedPercentage;
+
+        // Function to split the essay into sentences of 20 words each
+        function splitEssayIntoSentences(essay) {
+            const words = essay.split(' ');
+            const sentences = [];
+            let sentence = [];
+
+            for (let i = 0; i < words.length; i++) {
+                sentence.push(words[i]);
+                if (sentence.length === 20 || i === words.length - 1) {
+                    sentences.push(sentence.join(' '));
+                    sentence = [];
+                }
+            }
+            return sentences;
+        }
+
+        // Get sentences from the essay
+        const sentences = splitEssayIntoSentences(essayText);
+
+        // Create list items for each sentence, color-coded based on prediction
+        const predictionsList = document.getElementById('predictions-list');
+        sentences.forEach((sentence, index) => {
+            const listItem = document.createElement('p');
+            listItem.textContent = sentence;
+            // Apply color based on the prediction (1 for authentic, 0 for generated)
+            listItem.style.backgroundColor = predictions[index] === 1 ? 'blue' : 'red';
+            listItem.style.color = 'white'; // Set text color to white for readability
+            listItem.style.padding = '10px';
+            listItem.style.marginBottom = '10px';
+            predictionsList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
