@@ -63,11 +63,19 @@ To use this project locally, follow these steps:
    - Open `model/model.ipynb` to explore how the model and tokenizer were created.
 
 4. **Run the Web Application Locally:**
-   - Start the web application:
+   - Start the web application and microservice by running the `start_services.sh` script:
      ```bash
      bash app/start_services.sh
      ```
-   - Access the application in your browser at `http://localhost:9000/` (default configuration).
+   - This will:
+     - Start the web app on `http://localhost:9000/`.
+     - Set up and activate the virtual environment for the microservice.
+     - Install the necessary dependencies if the virtual environment does not exist (app/services/env).
+     - Start the microservice on port `8000`.
+   - You can access the web application in your browser at `http://localhost:9000/`.
+
+5. **Stop the Services:**
+   - If you need to stop the services, simply terminate the script by pressing `Ctrl+C`. This will stop both the web app and the microservice.
 
 ## License
 
