@@ -6,9 +6,9 @@ This project is dedicated to helping English teachers identify essays and other 
 
 The AI-Generated-Text-Catcher web application is publicly hosted and available at:
 
-**[https://54.196.179.187/](https://54.196.179.187/)**
+**[https://ai-text-catcher.duckdns.org/](https://ai-text-catcher.duckdns.org/)**
 
-Please note that the public IPv4 address may change periodically. If you encounter any issues or need assistance, feel free to contact the contributors of the project.
+If you encounter any issues or need assistance, feel free to contact the contributors of the project.
 
 Use this web application to analyze text and identify AI-generated content quickly and efficiently.
 
